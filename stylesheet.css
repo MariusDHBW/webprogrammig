@@ -1,0 +1,439 @@
+
+/*header{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0 1em;
+    font-size: 3em;
+    background-color: #2ecc71;
+}
+*/
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2ecc71;
+    padding: 15px 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 20px 20px;
+    position: relative;
+    z-index: 1000;
+}
+
+header p{
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    height: 50px;
+    margin-right: 15px;
+    border-radius: 50%;
+    transition: transform 0.6s ease-in-out;
+}
+.logo:hover img {
+    transform: rotate(360deg);
+}
+.logo-text {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+nav ul{
+	margin: 0;
+	padding: 0;
+}
+
+nav li{	
+    display: inline-block; 
+	padding: 1em;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.login-register {
+    position: relative;
+}
+.login-register button {
+    background-color: #ffffff;
+    color: #2ecc71;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.login-register button:hover {
+    background-color: #ecf0f1;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    min-width: 180px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    cursor: pointer;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.dropdown-content a {
+    color: #2ecc71;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+}
+.dropdown-content a:hover {
+    background-color: #ecf0f1;
+    padding-left: 20px;
+}
+.login-register:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+footer {
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* The sidepanel menu */
+.sidepanel {
+height: 250px; /* Specify a height */
+width: 0; /* 0 width - change this with JavaScript */
+position: fixed; /* Stay in place */
+z-index: 1; /* Stay on top */
+top: 0;
+left: 0;
+background-color: #111; /* Black*/
+overflow-x: hidden; /* Disable horizontal scroll */
+padding-top: 60px; /* Place content 60px from the top */
+transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+}
+
+/* The sidepanel links */
+.sidepanel a {
+padding: 8px 8px 8px 32px;
+text-decoration: none;
+font-size: 25px;
+color: #818181;
+display: block;
+transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidepanel a:hover {
+color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidepanel .closebtn {
+position: absolute;
+top: 0;
+right: 25px;
+font-size: 36px;
+margin-left: 50px;
+}
+
+/* Style the button that is used to open the sidepanel */
+.openbtn {
+font-size: 20px;
+cursor: pointer;
+background-color: #2ecc71;
+color: #000000;
+padding: 10px 15px;
+border: none;
+}
+
+.openbtn:hover {
+background-color: #444;
+} 
+
+
+/* Cookie Banner */
+.fixed{
+    border: var(--accent-color-dark) solid 3px;
+    max-height: 50%;
+    max-width: 100%;
+    padding: 1em;
+    padding-bottom: 1em;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+.fixed button {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+}
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+    background-color: #2ecc71;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+} 
+
+
+.login-register:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+.modal-overlay.show {
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out;
+}
+.modal-overlay.hide {
+    animation: fadeOut 0.3s ease-in-out;
+}
+.modal-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s ease-in-out;
+}
+.modal-overlay.show .modal-container {
+    transform: scale(1);
+}
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.modal-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+}
+.button-success {
+    background-color: #2ecc71;
+    color: white;
+}
+.button-success:hover {
+    background-color: #27ae60;
+}
+
+
+
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#catMenu{
+    justify-content: space-between;
+}
+.box, .category{
+    margin: 0.2em;
+    padding: 1em;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0px 0px 5px lightgray;
+}
+.box{
+    max-width: 90%;		
+    text-decoration: none;
+    color: black;
+}
+.box:hover, .category:hover{
+    box-shadow: 0px 0px 10px black;
+}
+.box-title{
+    font-weight: bold;
+    border-bottom: 2px solid black;
+    padding: 1em;
+    margin: 0;
+}
+.box img{
+    width: 80%;
+    border-radius: 80%;
+}
+.category{
+    border-radius: 10px;
+    padding: 5px;	
+    margin: 0.5em;				
+}
+.category button{
+    display: block;
+    padding: 0.5em;
+    /*background: linear-gradient(60deg, var(--accent-color), var(--accent-back-color));*/
+    background-color: var(--accent-color-dark);
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    font-size: 1.5em;		
+    letter-spacing: -1px;
+    word-spacing: -4px;
+    font-weight: 1000;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: small-caps;
+    color: black;
+}
+
+
+
+
+.container {
+    display: flex;
+    gap: 20px; /* Passt den Abstand an */
+    justify-content: space-between;
+    /*padding: 1rem;*/
+}
+
+
+.main {
+    flex: 7;
+    display: flex;
+    gap: 20px; /* Passt den Abstand an */
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.main-content {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.sidebar{
+    flex: 3; /* Nimmt 30% der Breite ein */
+    display: flex;
+    gap: 20px; /* Passt den Abstand an */
+    flex-direction: column;
+}
+.sidebar-content {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.sidebar h2 {
+    color: #4CAF50;
+}
+
+@media (min-width: 768px) {
+    #navMobile {
+      display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    #navDesktop {
+        display: none;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+}
