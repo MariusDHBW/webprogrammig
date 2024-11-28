@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArniBarni</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2ecc71;
+            padding: 15px 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 0 0 20px 20px;
+            position: relative;
+            z-index: 1000;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+            border-radius: 50%;
+            transition: transform 0.6s ease-in-out;
+        }
+        .logo:hover img {
+            transform: rotate(360deg);
+        }
+        .logo-text {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #ffffff;
+            left: 0;
+            bottom: 0;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        .nav-links a:hover {
+            color: #ecf0f1;
+            transform: translateY(-2px);
+        }
+        .login-register {
+            position: relative;
+        }
+        .login-register button {
+            background-color: #ffffff;
+            color: #2ecc71;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .login-register button:hover {
+            background-color: #ecf0f1;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 180px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .dropdown-content a {
+            color: #2ecc71;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease, padding-left 0.3s ease;
+        }
+        .dropdown-content a:hover {
+            background-color: #ecf0f1;
+            padding-left: 20px;
+        }
+        .login-register:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .user-circle {
+            width: 40px;
+            height: 40px;
+            background-color: #2ecc71;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            position: relative;
+        }
+        .user-dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 180px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .user-circle:hover .user-dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .user-dropdown-content a, .user-dropdown-content p {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease, padding-left 0.3s ease;
+        }
+        .user-dropdown-content a:hover {
+            background-color: #287233;
+            padding-left: 20px;
+        }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .modal-overlay.show {
+            display: flex;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .modal-overlay.hide {
+            animation: fadeOut 0.3s ease-in-out;
+        }
+        .modal-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease-in-out;
+        }
+        .modal-overlay.show .modal-container {
+            transform: scale(1);
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .modal-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+        }
+        .button-success {
+            background-color: #2ecc71;
+            color: white;
+        }
+        .button-success:hover {
+            background-color: #27ae60;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            /* margin-left: auto; */
+            /* margin-right: 100px; */
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 4px 0;
+            transition: all 0.3s ease-in-out;
+        }
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background-color: #2ecc71;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 100%;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .mobile-menu a {
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+        .hamburger.active + .mobile-menu {
+            display: flex;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            /* .hamburger {
+                display: flex;
+            } */
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <!-- Logo und Name -->
+        <div class="logo">
+            <img src="assets/bilder/weblogo.jpg" onclick="toggleMobileMenu()" alt="Logo">
+            <div class="logo-text">ArniBarni</div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="nav-links">
+            <a href="index.php">Home</a>
+            <a href="#about">Über Uns</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Kontakt</a>
+        </div>
+
+        <!-- Hamburger Menü für Mobile Geräte -->
+        <div class="hamburger" onclick="toggleMobileMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <!-- Mobile Menü -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#home">Home</a>
+            <a href="#about">Über Uns</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Kontakt</a>
+        </div>
+
+        <!-- Benutzerbereich -->
+        <div class="login-register">
+                            <!-- Benutzer ist nicht eingeloggt -->
+                <button>Login/Register</button>
+                <div class="dropdown-content">
+                    <a onclick="openLoginModal()">Login</a>
+                    <a onclick="openRegisterModal()">Register</a>
+                </div>
+                    </div>
+    </header>
+
+    <!-- Modals für Login und Registrierung -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="modal-title">Login</div>
+                <button class="modal-close" onclick="closeLoginModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" onsubmit="return loginSubmit();">
+                    <label for="loginUsername" class="label">Benutzername</label>
+                    <input type="text" id="loginUsername" class="input-field" placeholder="Geben Sie Ihren Benutzernamen ein..." autocomplete="username">
+                    <br>
+                    <label for="loginPassword" class="label">Passwort</label>
+                    <input type="password" id="loginPassword" class="input-field" placeholder="Geben Sie Ihr Passwort ein..." autocomplete="current-password">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button onclick="loginSubmit(event)" class="button button-success">Login</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="registerModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="modal-title">Registrierung</div>
+                <button class="modal-close" onclick="closeRegisterModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm" onsubmit="return registerSubmit();">
+                    <label for="registerMail" class="label">E-Mail</label>
+                    <input type="text" id="registerMail" class="input-field" placeholder="Geben Sie Ihre Email ein..." autocomplete="email">
+                    <br>
+                    <label for="registerUsername" class="label">Benutzername</label>
+                    <input type="text" id="registerUsername" class="input-field" placeholder="Geben Sie Ihren Benutzernamen ein...">
+                    <br>
+                    <label for="registerPassword" class="label">Passwort</label>
+                    <input type="password" id="registerPassword" class="input-field" placeholder="Geben Sie Ihr Passwort ein..." autocomplete="new-password">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" form="registerForm" class="button button-success" onclick="registerSubmit(event)">Registrieren</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('show');
+        }
+
+        function openLoginModal() {
+            document.getElementById('loginModal').classList.add('show');
+        }
+
+        function closeLoginModal() {
+            const loginModal = document.getElementById('loginModal');
+            loginModal.classList.add('hide');
+            setTimeout(() => {
+                loginModal.classList.remove('show');
+                loginModal.classList.remove('hide');
+            }, 300);
+        }
+
+        function openRegisterModal() {
+            document.getElementById('registerModal').classList.add('show');
+        }
+
+        function closeRegisterModal() {
+            const registerModal = document.getElementById('registerModal');
+            registerModal.classList.add('hide');
+            setTimeout(() => {
+                registerModal.classList.remove('show');
+                registerModal.classList.remove('hide');
+            }, 300);
+        }
+
+        async function loginSubmit(event) {
+            event.preventDefault(); // Verhindert das automatische Absenden des Formulars
+            var loginusername = document.getElementById('loginUsername').value.trim();
+            var loginpassword = document.getElementById('loginPassword').value.trim();
+
+            if (!loginusername || !loginpassword) {
+                alert('Bitte füllen Sie alle Login Felder aus.');
+                return false;
+            }
+            // Log für weiteren Debugging-Zweck
+
+            try {
+                const response = await fetch('/handler/loginHandler.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams({
+                        'username': loginusername,
+                        'password': loginpassword
+                    })
+                });
+
+                const result = await response.text();
+
+                if (result.trim() === 'success') {
+                     location.reload();  // Seite neu laden bei erfolgreichem Login
+                } else {
+                    alert('Login fehlgeschlagen: ' + result);
+                }
+            } catch (error) {
+                alert('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
+            }
+
+            return false;  // Verhindere das Standard-Formular-Submit
+        }
+
+        async function registerSubmit(event) {
+            event.preventDefault();  // Verhindert das automatische Absenden des Formulars
+
+            var email = document.getElementById('registerMail').value;
+            var username = document.getElementById('registerUsername').value;
+            var password = document.getElementById('registerPassword').value;
+
+            if (!email || !username || !password) {
+                alert('Bitte füllen Sie alle Felder aus.');
+                return;
+            }
+
+            const response = await fetch('/handler/registerHandler.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    'email': email,
+                    'username': username,
+                    'password': password
+                })
+            });
+
+            const result = await response.text();
+
+            if (result.trim() === 'Verification email sent') {
+                alert('Registrierung erfolgreich. Bitte überprüfen Sie Ihre E-Mails, um Ihre Registrierung zu bestätigen.');
+                closeRegisterModal();  // Schließt das Registrierungsmodal
+            } else if (result.trim() === 'Email already exists') {
+                alert('Die E-Mail-Adresse oder der UserName existiert bereits. Bitte verwenden Sie eine andere E-Mail / Username.');
+            } else {
+                alert('Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.');
+            }
+
+            return false;  // Verhindere das Standard-Formular-Submit
+        }
+
+        // Füge den Event-Listener hinzu
+        document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('loginForm').addEventListener('submit', loginSubmit);
+        document.getElementById('registerForm').addEventListener('submit', registerSubmit);
+    });
+
+    </script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meine Hauptseite</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        /* header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        } */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+        }
+        .main-content {
+            width: 70%;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar {
+            width: 25%;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar h2 {
+            color: #4CAF50;
+        }
+        .find-arnold-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin-top: 1rem;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .find-arnold-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- <h1>Arnold Müller Hammer Krasse Seite</h1> -->
+    </header>
+    <div class="container">
+        <div class="main-content">
+            <h2>Randow Stuff</h2>
+            <p>More Random Stuff.</p>
+        </div>
+        <div class="sidebar">
+            <h2>Wo ist Arnold?</h2>
+            <p>Falls sie keine Ahnung haben wo sich Arnold momentan befindet</p>
+            <a href="/aufdemKlo.php" class="find-arnold-button">Finde es heraus</a>
+        </div>
+    </div>
+</body>
+</html>
