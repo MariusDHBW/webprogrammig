@@ -22,7 +22,6 @@
             href="stylesheet.css">
     </head>
 
-    <!-- Page content -->
     <body>
 
         <header>
@@ -51,9 +50,9 @@
     
             </nav>
 
-            <!-- Benutzerbereich -->
+            <!-- Userarea -->
             <div id="navDesktop" class="login-register">
-                <!-- Benutzer ist nicht eingeloggt -->
+                <!-- User not logged in -->
                 <button>Login/Register</button>
                 <div class="dropdown-content">
                     <a onclick="openLoginModal()">Login</a>
@@ -63,7 +62,7 @@
 
         </header>
 
-        <!-- Modals für Login, Registrierung, Cookies und Kick Erfolg bestätigung-->
+        <!-- Modals for Login, Registration, Cookies and Success Message-->
         <div class="modal-overlay" id="loginModal">
             <div class="modal-container">
                 <div class="modal-header">
@@ -136,66 +135,63 @@
             </div>
         
         </div>
+        
+        <!-- Hauptinhalt der Seite -->      
+        <main>
 
-        <!-- Hauptinhalt der Seite -->
-        <div class="container">
-            
-            <div class="main">
-                <div class="main-content">
-                    <h2 class="section-title">Herzlich Willkommen auf unserem Reiseblog!</h2>
-                    <p>Schön, dass du hier bist! Auf unserem Reiseblog nehmen wir dich mit auf eine spannende Reise rund um den Globus. Hier findest du nicht nur beeindruckende Reiseberichte aus exotischen Ländern, sondern auch nützliche Tipps, spannende Geschichten und die besten Geheimtipps, die dir helfen, deine nächste Reise unvergesslich zu machen.</p>
-                    <p>Wir teilen nicht nur die Highlights der schönsten Reiseziele, sondern auch praktische Informationen zu Reisevorbereitungen, Budgetplanung und einzigartigen Erlebnissen, die du auf deiner Reise nicht verpassen solltest. Unsere Leidenschaft für das Reisen steckt in jedem Beitrag, und wir hoffen, dich zu inspirieren, die Welt mit offenen Augen und einem offenen Herzen zu entdecken.</p>
-                </div>
-
-                <div class="main-content">
-                    <h2 class="section-title">Warum solltest du uns folgen?</h2>
-                    <ul>
-                        <li><strong>Vielfältige Reiseziele:</strong> Wir erkunden alle Ecken der Welt – von tropischen Inseln über pulsierende Städte bis hin zu abgelegenen Bergregionen.</li>
-                        <li><strong>Praktische Reisetipps:</strong> Du findest hilfreiche Informationen zu Flugbuchungen, Unterkünften, Budgetreisen und vieles mehr.</li>
-                        <li><strong>Persönliche Erlebnisse:</strong> Unsere Berichte basieren auf unseren eigenen Erfahrungen, damit du die Reise wirklich fühlen kannst.</li>
-                    </ul>
-                    <p>Egal, ob du als Alleinreisender, mit Freunden oder der Familie unterwegs bist – wir bieten dir die besten Empfehlungen und Reiseideen für jedes Budget und jeden Reisestil. Unsere Leidenschaft fürs Reisen ist ansteckend, und wir hoffen, dich zu inspirieren, deine eigenen Abenteuer zu erleben!</p>
-               
-                </div>
-
-                <div class="main-content">
-                    <h1>5 Reisebilder von Pixabay</h1>
-                    <div id="image-container"></div> <!-- Hier werden die Bilder eingefügt -->
-                    <button id="load-more" onclick="loadPixabayImages()" class="button button-success">Mehr Bilder laden</button> <!-- Button für mehr Bilder -->
-                </div>
-
-                <div class="main-content">
-                    <h2 class="section-title">Kontaktformular – Wir hören gerne von dir!</h2>
-                    <p>Hast du Fragen zu einem unserer Reiseziele? Möchtest du deine eigenen Tipps und Erlebnisse teilen? Oder hast du einfach Lust, mit uns über die Welt zu sprechen? Dann nutze gerne unser Kontaktformular! Wir freuen uns auf deine Nachricht und sind immer für einen Austausch zu haben.</p>
-
-                </div>
+            <div class="container">
                 
-            </div>          
+                <div class="main">
+                    <div class="main-content">
+                        <h2 class="section-title">Herzlich Willkommen auf unserem Reiseblog!</h2>
+                        <p>Schön, dass du hier bist! Auf unserem Reiseblog nehmen wir dich mit auf eine spannende Reise rund um den Globus. Hier findest du nicht nur beeindruckende Reiseberichte aus exotischen Ländern, sondern auch nützliche Tipps, spannende Geschichten und die besten Geheimtipps, die dir helfen, deine nächste Reise unvergesslich zu machen.</p>
+                        <p>Wir teilen nicht nur die Highlights der schönsten Reiseziele, sondern auch praktische Informationen zu Reisevorbereitungen, Budgetplanung und einzigartigen Erlebnissen, die du auf deiner Reise nicht verpassen solltest. Unsere Leidenschaft für das Reisen steckt in jedem Beitrag, und wir hoffen, dich zu inspirieren, die Welt mit offenen Augen und einem offenen Herzen zu entdecken.</p>
+                    </div>
 
-            <div class="sidebar">
-                <div class="sidebar-content">
-                    <h1>Wetter in deiner Stadt</h1>
-                    <input type="text" id="cityInput" placeholder="Gib eine Stadt ein" />
-                    <button onclick="getWeather()" class="button button-success">Wetter anzeigen</button>
-                    <div id="weatherResult"></div>
-                </div>
-                <div class="sidebar-content">
-                    <h1>Wo ist Marius?</h1>
-                    <p>Falls sie keine Ahnung haben wo sich Marius momentan befindet wir wissen es auch nicht.</p>
+                    <div class="main-content">
+                        <h2 class="section-title">Warum solltest du uns folgen?</h2>
+                        <ul>
+                            <li><strong>Vielfältige Reiseziele:</strong> Wir erkunden alle Ecken der Welt – von tropischen Inseln über pulsierende Städte bis hin zu abgelegenen Bergregionen.</li>
+                            <li><strong>Praktische Reisetipps:</strong> Du findest hilfreiche Informationen zu Flugbuchungen, Unterkünften, Budgetreisen und vieles mehr.</li>
+                            <li><strong>Persönliche Erlebnisse:</strong> Unsere Berichte basieren auf unseren eigenen Erfahrungen, damit du die Reise wirklich fühlen kannst.</li>
+                        </ul>
+                        <p>Egal, ob du als Alleinreisender, mit Freunden oder der Familie unterwegs bist – wir bieten dir die besten Empfehlungen und Reiseideen für jedes Budget und jeden Reisestil. Unsere Leidenschaft fürs Reisen ist ansteckend, und wir hoffen, dich zu inspirieren, deine eigenen Abenteuer zu erleben!</p>
+                
+                    </div>
+
+                    <div class="main-content">
+                        <h1>5 Reisebilder von Pixabay</h1>
+                        <div id="image-container"></div> <!-- Hier werden die Bilder eingefügt -->
+                        <button id="load-more" onclick="loadPixabayImages()" class="button button-success">Mehr Bilder laden</button> <!-- Button für mehr Bilder -->
+                    </div>
+
+                    <div class="main-content">
+                        <h2 class="section-title">Kontaktformular – Wir hören gerne von dir!</h2>
+                        <p>Hast du Fragen zu einem unserer Reiseziele? Möchtest du deine eigenen Tipps und Erlebnisse teilen? Oder hast du einfach Lust, mit uns über die Welt zu sprechen? Dann nutze gerne unser Kontaktformular! Wir freuen uns auf deine Nachricht und sind immer für einen Austausch zu haben.</p>
+
+                    </div>
+                    
+                </div>          
+
+                <div class="sidebar">
+                    <div class="sidebar-content">
+                        <h1>Wetter in deiner Stadt</h1>
+                        <input type="text" id="cityInput" placeholder="Gib eine Stadt ein" />
+                        <button onclick="getWeather()" class="button button-success">Wetter anzeigen</button>
+                        <div id="weatherResult"></div>
+                    </div>
+                    <div class="sidebar-content">
+                        <h1>Wo ist Marius?</h1>
+                        <p>Falls sie keine Ahnung haben wo sich Marius momentan befindet wir wissen es auch nicht.</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </main>
 
-         <!-- Cookies Modal öffnen -->
-
+        <!-- Cookies Modal öffnen -->
         <div class="fixed"> 
             <img src="bilder/cookie.jpeg" alt="Cookiebuton" width="40" height="40" onclick="openCookiesModal()" style="cursor: pointer;"></img>
         </div>
-
-        
-
-
-
 
         <!-- Footer -->
         <footer>
@@ -210,9 +206,7 @@
             <p>© 2024 Meine Website. Alle Rechte vorbehalten.</p>
         </footer>
         
-
         <script src="javascript.js"></script>
 
     </body>
-
 </html> 
