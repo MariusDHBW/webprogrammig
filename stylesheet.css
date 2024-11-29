@@ -1,14 +1,4 @@
 
-/*header{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 0 1em;
-    font-size: 3em;
-    background-color: #2ecc71;
-}
-*/
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -33,6 +23,8 @@ header p{
 	text-align: center;
 }
 
+/* Logo  */
+
 .logo {
     display: flex;
     align-items: center;
@@ -52,6 +44,8 @@ header p{
     color: #ffffff;
 }
 
+/* Navigation Menu */
+
 nav ul{
 	margin: 0;
 	padding: 0;
@@ -69,7 +63,10 @@ nav a {
     position: relative;
     padding-bottom: 5px;
     transition: color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
 }
+
+/* Buttons */
 
 .login-register {
     position: relative;
@@ -89,6 +86,17 @@ nav a {
     background-color: #ecf0f1;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
+.login-register:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+.login-register:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Dropdown Menu */
 
 .dropdown-content {
     display: none;
@@ -116,12 +124,8 @@ nav a {
     background-color: #ecf0f1;
     padding-left: 20px;
 }
-.login-register:hover .dropdown-content {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-}
 
+/* Foooter */
 
 footer {
     background-color: #1d7390;
@@ -135,21 +139,20 @@ footer a {
     text-decoration: none;
 }
 
-/* The sidepanel menu */
+/* Sidepanel Menu */
 .sidepanel {
-height: 250px; /* Specify a height */
-width: 0; /* 0 width - change this with JavaScript */
-position: fixed; /* Stay in place */
-z-index: 1; /* Stay on top */
+height: 280px; 
+width: 0; 
+position: fixed; 
+z-index: 1; 
 top: 0;
 left: 0;
-background-color: #111; /* Black*/
-overflow-x: hidden; /* Disable horizontal scroll */
-padding-top: 60px; /* Place content 60px from the top */
-transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+background-color: #111;
+overflow-x: hidden; 
+padding-top: 60px; 
+transition: 0.5s; 
 }
 
-/* The sidepanel links */
 .sidepanel a {
 padding: 8px 8px 8px 32px;
 text-decoration: none;
@@ -159,12 +162,10 @@ display: block;
 transition: 0.3s;
 }
 
-/* When you mouse over the navigation links, change their color */
 .sidepanel a:hover {
 color: #f1f1f1;
 }
 
-/* Position and style the close button (top right corner) */
 .sidepanel .closebtn {
 position: absolute;
 top: 0;
@@ -173,7 +174,7 @@ font-size: 36px;
 margin-left: 50px;
 }
 
-/* Style the button that is used to open the sidepanel */
+/* Open Buton */
 .openbtn {
 font-size: 20px;
 cursor: pointer;
@@ -205,19 +206,19 @@ background-color: #444;
     right: 1em;
 }
 
-/* Style inputs with type="text", select elements and textareas */
+/* Kontaktformular / Eingabefelder*/
+
 input[type=text], select, textarea {
-    width: 100%; /* Full width */
-    padding: 12px; /* Some padding */ 
-    border: 1px solid #ccc; /* Gray border */
-    border-radius: 4px; /* Rounded borders */
-    box-sizing: border-box; /* Make sure that padding and width stays in place */
-    margin-top: 6px; /* Add a top margin */
-    margin-bottom: 16px; /* Bottom margin */
-    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+    width: 100%; 
+    padding: 12px;  
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 6px; 
+    margin-bottom: 16px; 
+    resize: vertical 
 }
 
-/* Style the submit button with a specific background color etc */
 input[type=submit] {
     background-color: #1d7390;
     color: white;
@@ -227,24 +228,20 @@ input[type=submit] {
     cursor: pointer;
 }
 
-/* When moving the mouse over the submit button, add a darker green color */
 input[type=submit]:hover {
     background-color: #1d73909c;
 }
 
-/* Add a background color and some padding around the form */
-.container {
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-} 
-
-
-.login-register:hover .dropdown-content {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
+    box-sizing: border-box;
 }
+
+/* Modal */
 
 .modal-overlay {
     position: fixed;
@@ -294,14 +291,9 @@ input[type=submit]:hover {
     font-size: 24px;
     cursor: pointer;
 }
-.input-field {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
+
+
+/* Buttons */
 
 .button {
     padding: 10px 20px;
@@ -320,13 +312,6 @@ input[type=submit]:hover {
 }
 
 
-
-
-.container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
 #catMenu{
     justify-content: space-between;
 }
@@ -363,7 +348,6 @@ input[type=submit]:hover {
 .category button{
     display: block;
     padding: 0.5em;
-    /*background: linear-gradient(60deg, var(--accent-color), var(--accent-back-color));*/
     background-color: var(--accent-color-dark);
     border-radius: 10px;
     width: 100%;
@@ -379,20 +363,23 @@ input[type=submit]:hover {
 }
 
 
-
+/* Container */
 
 .container {
     display: flex;
-    gap: 20px; /* Passt den Abstand an */
+    background-color: #f2f2f2;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 20px; 
     justify-content: space-between;
-    /*padding: 1rem;*/
-}
+} 
 
+/* Main Content */
 
 .main {
     flex: 7;
     display: flex;
-    gap: 20px; /* Passt den Abstand an */
+    gap: 20px; 
     justify-content: space-between;
     flex-direction: column;
 }
@@ -405,10 +392,12 @@ input[type=submit]:hover {
 
 }
 
+/* Sidebar */
+
 .sidebar{
-    flex: 3; /* Nimmt 30% der Breite ein */
+    flex: 3; 
     display: flex;
-    gap: 20px; /* Passt den Abstand an */
+    gap: 20px; 
     flex-direction: column;
 }
 .sidebar-content {
@@ -421,6 +410,8 @@ input[type=submit]:hover {
     color: #4CAF50;
 }
 
+
+/* Bilder fotmaatierung */
 img {
     max-width: 100%;
     height: auto;
@@ -428,7 +419,7 @@ img {
 }
 
 
-
+/* Bildschimgrößen Einstellungen */
 
 @media (min-width: 768px) {
     #navMobile {
