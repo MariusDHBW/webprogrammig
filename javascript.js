@@ -45,10 +45,8 @@ function openCookiesModal() {
 function closeCookiesModal() {
     const cookiesModal = document.getElementById('cookiesModal');
     cookiesModal.classList.add('hide');
-    setTimeout(() => {
-        cookiesModal.classList.remove('show');
-        cookiesModal.classList.remove('hide');
-    }, 300);
+    cookiesModal.classList.remove('show');
+    cookiesModal.classList.remove('hide');
 }
 
 function acceptCookiesPopupModal() {
@@ -56,11 +54,18 @@ function acceptCookiesPopupModal() {
     const successCookiesPopupModal = document.getElementById('acceptCookiesPopupModal');
     successCookiesPopupModal.classList.add('show');
     setTimeout(() => {
-        successCookiesPopupModal.classList.add('hide');
-        successCookiesPopupModal.classList.remove('show');
-        successCookiesPopupModal.classList.remove('hide');
-    }, 2000)
+        closeSuccesCookiesPopupModal()
+    }, 3000)
 }
+
+function closeSuccesCookiesPopupModal() {
+    const successCookiesPopupModal = document.getElementById('acceptCookiesPopupModal');
+    successCookiesPopupModal.classList.add('hide');
+    successCookiesPopupModal.classList.remove('show');
+    successCookiesPopupModal.classList.remove('hide');
+}
+
+
 
 
 
