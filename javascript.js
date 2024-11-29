@@ -111,3 +111,35 @@ async function getWeather() {
         document.getElementById('weatherResult').innerHTML = "Fehler beim Abrufen der Wetterdaten.";
     }
 }
+
+
+const apiKeyBilder = '47364965-d9dd8e2ac27bd2c4e738c5883'; // Dein Pixabay API-Schlüssel
+const query = 'travel'; // Der Suchbegriff, nach dem du Bilder suchst
+const numberOfImages = 5; // Anzahl der Bilder, die du laden möchtest
+
+// Funktion, um die Bilder von Pixabay zu laden
+function loadPixabayImages() {
+    // URL der Pixabay API mit den Parametern für die Suche
+    fetch(`https://pixabay.com/api/?key=${apiKeyBilder}&q=${query}&image_type=photo&per_page=${numberOfImages}`)
+        .then(response => response.json())  // JSON-Antwort erhalten
+        .then(data => {
+            // Durch die empfangenen Bilder iterieren
+            const imageContainer = document.getElementById('image-container');
+            data.hits.forEach(image => {
+                // Erstelle ein neues img-Element für jedes Bild
+                const img = document.createElement('img');
+                img.src = image.webformatURL; // URL des Bildes in mittlerer Auflösung
+                
+                // Verwende die Tags als Alt-Text und ersetze Kommas durch Leerzeichen
+                img.alt = image.tags.split(',').join(' '); 
+
+                // Füge das Bild in den Container ein
+                imageContainer.appendChild(img);
+            });
+        })
+        .catch(error => {
+            console.error('Fehler beim Laden der Bilder von Pixabay:', error);
+        });
+}
+
+loadPixabayImages()
