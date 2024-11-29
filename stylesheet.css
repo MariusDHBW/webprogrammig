@@ -421,6 +421,12 @@ input[type=submit]:hover {
     color: #4CAF50;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px;
+}
+
 @media (min-width: 768px) {
     #navMobile {
       display: none;

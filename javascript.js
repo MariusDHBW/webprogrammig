@@ -115,12 +115,12 @@ async function getWeather() {
 
 const apiKeyBilder = '47364965-d9dd8e2ac27bd2c4e738c5883'; // Dein Pixabay API-Schlüssel
 const query = 'travel'; // Der Suchbegriff, nach dem du Bilder suchst
-const numberOfImages = 5; // Anzahl der Bilder, die du laden möchtest
+const numberOfImages = 20; // Anzahl der Bilder, die du laden möchtest
 
 // Funktion, um die Bilder von Pixabay zu laden
 function loadPixabayImages() {
     // URL der Pixabay API mit den Parametern für die Suche
-    fetch(`https://pixabay.com/api/?key=${apiKeyBilder}&q=${query}&image_type=photo&per_page=${numberOfImages}`)
+    fetch(`https://pixabay.com/api/?key=${apiKeyBilder}&q=${query}&image_type=photo&per_page=${numberOfImages}&orientation=horizontal`)
         .then(response => response.json())  // JSON-Antwort erhalten
         .then(data => {
             // Durch die empfangenen Bilder iterieren
@@ -131,7 +131,7 @@ function loadPixabayImages() {
                 img.src = image.webformatURL; // URL des Bildes in mittlerer Auflösung
                 
                 // Verwende die Tags als Alt-Text und ersetze Kommas durch Leerzeichen
-                img.alt = image.tags.split(',').join(' '); 
+                img.alt = image.tags.split(',').join(' ');  // Tags als Alt-Text für das Bild
 
                 // Füge das Bild in den Container ein
                 imageContainer.appendChild(img);
@@ -142,4 +142,5 @@ function loadPixabayImages() {
         });
 }
 
-loadPixabayImages()
+// Bilder laden, wenn die Seite geladen ist
+loadPixabayImages();
