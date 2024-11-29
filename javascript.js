@@ -51,6 +51,22 @@ function closeCookiesModal() {
     }, 300);
 }
 
+function acceptCookiesPopupModal() {
+    closeCookiesModal();
+    const successCookiesPopupModal = document.getElementById('acceptCookiesPopupModal');
+    successCookiesPopupModal.classList.add('show');
+    setTimeout(() => {
+        successCookiesPopupModal.classList.add('hide');
+        successCookiesPopupModal.classList.remove('show');
+        successCookiesPopupModal.classList.remove('hide');
+    }, 2000)
+}
+
+
+
+
+
+
 
 
 
