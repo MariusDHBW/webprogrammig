@@ -115,7 +115,7 @@ async function getWeather() {
 
 const apiKeyBilder = '47364965-d9dd8e2ac27bd2c4e738c5883'; // Dein Pixabay API-Schlüssel
 const query = 'travel'; // Der Suchbegriff, nach dem du Bilder suchst
-const numberOfImages = 20; // Anzahl der Bilder, die du laden möchtest
+const numberOfImages = 5; // Anzahl der Bilder, die du laden möchtest
 let currentPage = 1;
 const allImages = [];
 
