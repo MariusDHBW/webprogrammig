@@ -19,7 +19,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #2E43BD;
+    background-color: #1d7390;
     padding: 15px 30px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 0 0 20px 20px;
@@ -76,7 +76,7 @@ nav a {
 }
 .login-register button {
     background-color: #ffffff;
-    color: #2E43BD;
+    color: #1d7390;
     border: none;
     font-size: 18px;
     cursor: pointer;
@@ -106,7 +106,7 @@ nav a {
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .dropdown-content a {
-    color: #2E43BD;
+    color: #1d7390;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -124,7 +124,7 @@ nav a {
 
 
 footer {
-    background-color: #2E43BD;
+    background-color: #1d7390;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -177,7 +177,7 @@ margin-left: 50px;
 .openbtn {
 font-size: 20px;
 cursor: pointer;
-background-color: #2E43BD;
+background-color: #1d7390;
 color: #000000;
 padding: 10px 15px;
 border: none;
@@ -219,7 +219,7 @@ input[type=text], select, textarea {
 
 /* Style the submit button with a specific background color etc */
 input[type=submit] {
-    background-color: #2E43BD;
+    background-color: #1d7390;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -229,7 +229,7 @@ input[type=submit] {
 
 /* When moving the mouse over the submit button, add a darker green color */
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #1d73909c;
 }
 
 /* Add a background color and some padding around the form */
@@ -312,11 +312,11 @@ input[type=submit]:hover {
     width: 100%;
 }
 .button-success {
-    background-color: #2E43BD;
+    background-color: #1d7390;
     color: white;
 }
 .button-success:hover {
-    background-color: #27ae60;
+    background-color: #1d73909c;
 }
 
 
