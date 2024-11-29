@@ -132,23 +132,23 @@
                 <div class="main">
                     <h1>Konatkt</h1>
 
-                    <form>
+                    <form method="post" action="https://webhook.site/bc4600b0-fe8b-4f95-a5ef-ee045cf58401">
               
-                        <label for="fname">First Name</label>
-                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                        <label for="fname">Vorname</label>
+                        <input type="text" id="fname" name="firstname" required placeholder="Your name.." >
                     
-                        <label for="lname">Last Name</label>
-                        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-                    
-                        <label for="country">Country</label>
+                        <label for="lname">Nachname</label>
+                        <input type="text" id="lname" name="lastname" required placeholder="Your last name..">
+
+                        <label for="country">Land</label>
                         <select id="country" name="country">
                           <option value="germany">Deutschland</option>
                           <option value="france">Frankreich</option>
                           <option value="usa">USA</option>
                         </select>
                     
-                        <label for="subject">Subject</label>
-                        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                        <label for="subject">Nachricht</label>
+                        <textarea id="subject" name="subject" required placeholder="Write something.." style="height:200px" maxlength="2000"></textarea>
                     
                         <input type="submit" value="Submit">
                     
