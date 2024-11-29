@@ -153,4 +153,3 @@ function loadPixabayImages() {
 }
 
 // Bilder laden, wenn die Seite geladen ist
-loadPixabayImages();

@@ -44,10 +44,10 @@
                     <a href="index.html">Startseite</a>
                     <a href="blog.html">Blog</a>
                     <a href="kontakt.html">Kontakt</a>
-                </div>
-
-                <button id="navMobile" class="openbtn" onclick="openNav()">&#9776; </button>
-    
+                    <br>
+                    <a onclick="openLoginModal()">Login</a>
+                    <a onclick="openRegisterModal()">Register</a>
+                </div>    
             </nav>
 
             <!-- Userarea -->
@@ -135,7 +135,7 @@
             </div>
         
         </div>
-        
+
         <!-- Hauptinhalt der Seite -->      
         <main>
 
@@ -161,6 +161,7 @@
 
                     <div class="main-content">
                         <h1>5 Reisebilder von Pixabay</h1>
+                        <script src="javascript.js">loadPixabayImages();</script>
                         <div id="image-container"></div> <!-- Hier werden die Bilder eingefügt -->
                         <button id="load-more" onclick="loadPixabayImages()" class="button button-success">Mehr Bilder laden</button> <!-- Button für mehr Bilder -->
                     </div>
@@ -205,8 +206,6 @@
 
             <p>© 2024 Meine Website. Alle Rechte vorbehalten.</p>
         </footer>
-        
-        <script src="javascript.js"></script>
 
     </body>
 </html> 
