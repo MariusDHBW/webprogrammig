@@ -49,20 +49,20 @@ function closeCookiesModal() {
     cookiesModal.classList.remove('hide');
 }
 
-function acceptCookiesPopupModal() {
+function openSuccesPopupModal() {
     closeCookiesModal();
-    const successCookiesPopupModal = document.getElementById('acceptCookiesPopupModal');
-    successCookiesPopupModal.classList.add('show');
+    const openSuccesPopupModal = document.getElementById('SuccesPopupModal');
+    openSuccesPopupModal.classList.add('show');
     setTimeout(() => {
-        closeSuccesCookiesPopupModal()
+        closeSuccesPopupModal()
     }, 3000)
 }
 
-function closeSuccesCookiesPopupModal() {
-    const successCookiesPopupModal = document.getElementById('acceptCookiesPopupModal');
-    successCookiesPopupModal.classList.add('hide');
-    successCookiesPopupModal.classList.remove('show');
-    successCookiesPopupModal.classList.remove('hide');
+function closeSuccesPopupModal() {
+    const successPopupModal = document.getElementById('SuccesPopupModal');
+    successPopupModal.classList.add('hide');
+    successPopupModal.classList.remove('show');
+    successPopupModal.classList.remove('hide');
 }
 
 
@@ -73,24 +73,6 @@ function closeSuccesCookiesPopupModal() {
 
 
 
-
-
-
-
-
-// Ersetze 'DEIN_API_SCHLÜSSEL' durch deinen eigenen API-Schlüssel
-//const apiKey = 'EC279ED03BE5D65B0E27145F44DE62F7';
-//const steamId = '76561198862271361';
-
-// Funktion zum Abrufen der Spiele
-/*async function getOwnedGames() {
-  const response = await fetch(`http://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid=440&format=xml`);
-  const data = await response.json();
-  console.log(data.response.games);
-}
-
-getOwnedGames();
-*/
 
 
 // Der API Key ist ein free trial der am 12.12.2024 abläuft es sollt aztomatisch zu eine free key werden aber keine ahnung od das auch funktioniert.

