@@ -116,11 +116,13 @@ async function getWeather() {
 const apiKeyBilder = '47364965-d9dd8e2ac27bd2c4e738c5883'; // Dein Pixabay API-Schlüssel
 const query = 'travel'; // Der Suchbegriff, nach dem du Bilder suchst
 const numberOfImages = 20; // Anzahl der Bilder, die du laden möchtest
+let currentPage = 1;
+const allImages = [];
 
 // Funktion, um die Bilder von Pixabay zu laden
 function loadPixabayImages() {
     // URL der Pixabay API mit den Parametern für die Suche
-    fetch(`https://pixabay.com/api/?key=${apiKeyBilder}&q=${query}&image_type=photo&per_page=${numberOfImages}&orientation=horizontal`)
+    fetch(`https://pixabay.com/api/?key=${apiKeyBilder}&q=${query}&image_type=photo&per_page=${numberOfImages}&page=${currentPage}&orientation=horizontal`)
         .then(response => response.json())  // JSON-Antwort erhalten
         .then(data => {
             // Durch die empfangenen Bilder iterieren
@@ -136,6 +138,14 @@ function loadPixabayImages() {
                 // Füge das Bild in den Container ein
                 imageContainer.appendChild(img);
             });
+            // Nächste Seite laden
+            currentPage++;
+
+            // Wenn wir die maximale Anzahl von Seiten erreicht haben, den Button deaktivieren
+            if (currentPage > 5) { // Maximal 5 Seiten laden
+                document.getElementById('load-more').disabled = true;
+                document.getElementById('load-more').textContent = 'Keine weiteren Bilder verfügbar';
+            }
         })
         .catch(error => {
             console.error('Fehler beim Laden der Bilder von Pixabay:', error);
